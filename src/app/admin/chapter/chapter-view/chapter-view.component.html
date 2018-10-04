@@ -1,0 +1,7 @@
+<button routerLink = '/admin/question/create' [queryParams]="{ chapterName: chapter?.name,chapterId:chapter?.id }" class="btn btn-success">Create Question</button><br><br>
+<!-- <div>
+  <p>Chapter Name : {{chapter?.name}}</p>
+  <p>Chapter Description : {{chapter?.description}}</p>
+  <p>Chapter Status : {{chapter?.status}}</p>
+</div> -->
+<app-questions-list></app-questions-list>

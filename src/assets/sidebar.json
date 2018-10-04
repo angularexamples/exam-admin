@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": {
+            "en": "Home",
+            "de": "DE_Home"
+        },
+        "routerLink": "",
+        "icon": "fa fa-fw fa-home"
+    },
+    {
+        "id": 2,
+        "name": {
+            "en": "Course",
+            "de": "DE_Home"
+        },
+        "routerLink": "/admin/course",
+        "icon": "fa fa-fw fa-home"
+    }
+]

@@ -1,0 +1,94 @@
+<form [formGroup]="chapterForm" (ngSubmit)="saveChapters()">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <b>Chapters Form</b>
+      </h4>
+    </div>
+    <div class="panel-body">
+      <div class="form-group">
+        <span class="text-muted">
+          <em>
+            <span style="color:red;">*</span> Indicates required field</em>
+        </span>
+      </div>
+      <!-- Course Name -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="name">Course
+            <span style="color:red;">*</span>
+          </label>
+          <p class="course">{{courseName}}</p>
+          <!-- <input id="name" type="text" class="form-control" formControlName="courseId">
+          <p *ngIf="chapterForm.controls.courseId.hasError('required') &&
+             chapterForm.controls.courseId.touched" class="small text-danger formErrors">Course Name is required
+          </p> -->
+        </div>
+        <!-- Chapter Name -->
+        <div class="form-group">
+          <label for="name">Chapter
+            <span style="color:red;">*</span>
+          </label>
+          <input id="name" type="text" class="form-control" formControlName="name">
+          <p *ngIf="chapterForm.controls.name.hasError('required') &&
+               chapterForm.controls.name.touched" class="small text-danger formErrors">Chapter Name is required
+          </p>
+        </div>
+        <!-- Chapter Description -->
+        <div class="form-group">
+          <label for="name">Description
+            <span style="color:red;">*</span>
+          </label>
+          <input id="name" type="text" class="form-control" formControlName="description">
+          <p *ngIf="chapterForm.controls.description.hasError('required') &&
+             chapterForm.controls.description.touched" class="small text-danger formErrors">Chapter description is required
+          </p>
+        </div>
+      </div>
+      <!-- Chapter Status -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="name">Total Quetions
+            <span style="color:red;">*</span>
+          </label>
+          <input id="name" type="text" class="form-control" formControlName="total_qns">
+          <p *ngIf="chapterForm.controls.total_qns.hasError('required') &&
+                   chapterForm.controls.total_qns.touched" class="small text-danger formErrors">Total Quetions is required
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="name">Test Duration
+            <span style="color:red;">*</span>
+          </label>
+          <input id="name" type="text" class="form-control" formControlName="duration">
+          <p *ngIf="chapterForm.controls.duration.hasError('required') &&
+                     chapterForm.controls.duration.touched" class="small text-danger formErrors">Test Duration is required
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="status">Status
+            <span style="color:red;">*</span>
+          </label>
+          <select id="status" class="form-control" formControlName="status">
+            <option value=null selected>Select</option>
+            <option>active</option>
+            <option>inactive</option>
+          </select>
+          <p *ngIf="chapterForm.controls.status.hasError('required') &&
+             chapterForm.controls.status.touched" class="small text-danger formErrors">Chapter status is required
+          </p>
+        </div>
+      </div>
+      <!-- Submit -->
+      <div class="form-group" style="text-align: center;">
+        <button type="submit" class="btn btn-primary" [attr.disabled]="chapterForm.invalid || submitting ? true : null" [innerText]="submitBtnText"></button>
+        <!-- <app-submitting *ngIf="submitting"></app-submitting> -->
+        <a *ngIf="!submitting" class="btn btn-link" (click)="resetForm()" tabindex="0">Reset Form</a>
+        <!-- API submission error -->
+        <p *ngIf="error" class="mt-3 alert alert-danger">
+          <strong>Error:</strong> There was a problem submitting the form. Please try again.
+        </p>
+      </div>
+    </div>
+  </div>
+</form>

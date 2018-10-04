@@ -1,0 +1,45 @@
+
+<div *ngIf="!length;else dataBlock">
+  <h2 style="text-align: center">No questions Created .Create questions.........</h2>
+</div>
+<ng-template #dataBlock>
+<table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
+    <thead>
+        <tr>
+            <th style="width: 70%">
+                <mfDefaultSorter by="question">Question</mfDefaultSorter>
+            </th>
+            <th style="width: 20%">
+                <mfDefaultSorter by="chapter">Chapter Name</mfDefaultSorter>
+            </th>
+            <th style="width: 10%">
+              <mfDefaultSorter by="status">Action</mfDefaultSorter>
+          </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let qns of mf.data;index as i ">
+            <td>{{qns.question}}</td>
+            <td>{{qns.chapter.name}}</td>
+            <td>
+                <a (click)="deleteQuestion(qns.id,i)">
+                    <i class="fa fa-trash"></i>
+                </a>
+                /<a [routerLink]="['/admin/question/update',qns.id]" [queryParams]="{ chapterName: qns?.chapter?.name,chapterId:qns?.chapter?.id }">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                /<a [routerLink]="['/admin/question/view',qns.id]">
+                    <i class="fa fa-eye"></i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">
+                <mfBootstrapPaginator></mfBootstrapPaginator>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+</ng-template>

@@ -1,0 +1,16 @@
+.course {
+    border: 1px solid lightgray;
+    padding-top: 5px;
+    padding-bottom: 7px;
+    border-radius: 5px;
+    padding-left: 7px;
+}
+.checkbox-form .form-inline {
+    margin-bottom: 10px;
+}
+.checkbox-form input[type=checkbox], input[type=radio] {
+    margin-right: 20px;
+}
+.checkbox-form input {
+    margin-right: 10px;
+}
